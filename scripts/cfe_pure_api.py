@@ -26,7 +26,7 @@ def create_update():
         'user': 1,
         "content": "Another new cool update"
     }
-    r = requests.delete(BASE_URL + ENDPOINT, data=new_data)
+    r = requests.post(BASE_URL + ENDPOINT, data=new_data)
     print(r.headers)
     print(r.status_code)
     if r.status_code == requests.codes.ok:

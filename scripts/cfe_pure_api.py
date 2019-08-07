@@ -1,3 +1,4 @@
+import json
 import requests  # http requests
 
 
@@ -26,7 +27,7 @@ def create_update():
         'user': 1,
         "content": "Some more cool content"
     }
-    r = requests.post(BASE_URL + ENDPOINT + "1/", data=new_data)
+    r = requests.post(BASE_URL + ENDPOINT + "1/", data=json.dumps(new_data))
     print(r.headers)
     print(r.status_code)
     if r.status_code == requests.codes.ok:
@@ -34,7 +35,28 @@ def create_update():
         return r.json()
     return r.text
 
+
 # print(get_list())
 
+# print(create_update())
 
-print(create_update())
+
+def do_obj_update():
+    new_data = {
+        "content": "New obj data"
+    }
+    r = requests.put(BASE_URL + ENDPOINT + "1/", data=json.dumps(new_data))
+    # new_data = {
+    #     'id': 1,
+    #     "content": "Another more cool content"
+    # }
+    # r = requests.put(BASE_URL + ENDPOINT + "1/", data=new_data)
+    # print(r.headers)
+    print(r.status_code)
+    if r.status_code == requests.codes.ok:
+        # print(r.json())
+        return r.json()
+    return r.text
+
+
+print(do_obj_update())

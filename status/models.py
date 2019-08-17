@@ -15,7 +15,7 @@ class StatusManager(models.Manager):
         return StatusQuerySet(self.model, using=self._db)
 
 
-class Status(models.Model):
+class Status(models.Model):  # fb status, instagram post, tweet, linkedin post
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     content = models.TextField(null=True, blank=True)
     image = models.ImageField(
@@ -27,3 +27,7 @@ class Status(models.Model):
 
     def __str__(self):
         return str(self.content)[:50]
+
+    class Meta:
+        verbose_name = 'Status post'
+        verbose_name_plural = 'Status posts'

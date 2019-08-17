@@ -1,5 +1,6 @@
 {
-    "python.pythonPath": "C:/Users/JAYgenius/AppData/Local/Programs/Python/Python36-32/python.exe",
+    // "python.pythonPath": "C:/Users/JAYgenius/AppData/Local/Programs/Python/Python36-32/python.exe",
+    "python.pythonPath": "C:/Users/JAYgenius/Envs/restapi/Scripts/python.exe",
     "editor.formatOnSave": true,
     "python.linting.pep8Enabled": true,
     "python.linting.pylintPath": "pylint",

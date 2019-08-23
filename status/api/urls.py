@@ -1,14 +1,18 @@
 from django.conf.urls import url
 
-from .views import StatusAPIView, StatusCreateAPIView
+from .views import (
+    StatusAPIView,
+    StatusCreateAPIView,
+    StatusDetailAPIView,
+)
 
 
 urlpatterns = [
     url(r'^$', StatusAPIView.as_view()),
     url(r'^create/$', StatusCreateAPIView.as_view()),
-    # url(r'^(?P<id>,*)/$', StatusDetailAPIView.as_view()),
-    # url(r'^(?P<id>,*)/update/$', StatusDetailAPIView.as_view()),
-    # url(r'^(?P<id>,*)/delete/$', StatusDeleteAPIView.as_view()),
+    url(r'^(?P<pk>.*)/$', StatusDetailAPIView.as_view()),
+    # url(r'^(?P<id>.*)/update/$', StatusDetailAPIView.as_view()),
+    # url(r'^(?P<id>.*)/delete/$', StatusDeleteAPIView.as_view()),
 ]
 
 # Start with

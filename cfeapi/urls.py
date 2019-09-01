@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token   # accounts app
+
 from updates.views import (
     json_example_view,
     JsonCBV,
@@ -27,13 +29,8 @@ from updates.views import (
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api/auth/jwt/$', obtain_jwt_token),
+    url(r'^api/auth/jwt/refresh/$', refresh_jwt_token),
     url(r'^api/status/', include('status.api.urls')),
     url(r'^api/updates/', include('updates.api.urls'))
-
-
-    #     url(r'^json/example/$', json_example_view),
-    #     url(r'^json/cbv/$', JsonCBV.as_view()),
-    #     url(r'^json/cbv2/$', JsonCBV2.as_view()),
-    #     url(r'^json/serialized/list/$', SerializedListView.as_view()),
-    #     url(r'^json/serialized/detail/$', SerializedDetailView.as_view()),
 ]

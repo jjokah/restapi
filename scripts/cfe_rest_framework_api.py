@@ -3,19 +3,22 @@ import requests
 import os
 
 
-AUTH_ENDPOINT = "http://127.0.0.1:8000/api/auth/"
+AUTH_ENDPOINT = "http://127.0.0.1:8000/api/auth/register/"
 REFRESH_ENDPOINT = AUTH_ENDPOINT + "refresh/"
 ENDPOINT = "http://127.0.0.1:8000/api/status/"
 
 image_path = os.path.join(os.getcwd(), "code-cake.png")
 
 headers = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    # "Authorization": "JWT " + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTY4MDI0MzQ1LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm9yaWdfaWF0IjoxNTY4MDI0MDQ1fQ.y52y_0cA68ufibbqNoOKGwaowtch_Ik4N5Ol1xx6P7E',
 }
 
 data = {
-    'username': 'admin',
-    'password': 'superuser'
+    'username': 'admin6',
+    'email': 'admin6@gmail.com',
+    'password': 'superuser',
+    'password2': 'superuser',
 }
 
 r = requests.post(AUTH_ENDPOINT, data=json.dumps(data), headers=headers)
